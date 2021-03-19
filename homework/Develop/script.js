@@ -100,7 +100,15 @@ const numbersArray = [
   9,
 ];
 
+function generatePassword (){
+  let isLowerCase;
+  let isUpperCase;
+  let isNumber;
+  let isSpecialCharacter;
+  let isPasswordLength;
+  let password = "";
 
+}
 
 
 

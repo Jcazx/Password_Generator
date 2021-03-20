@@ -105,9 +105,48 @@ function generatePassword (){
   let isUpperCase;
   let isNumber;
   let isSpecialCharacter;
-  let isPasswordLength;
   let password = "";
+  let optionsArray = [];
+};
 
+
+if (passwordLength < 8) {
+  alert("Your password must have more than 7 characters");
+}
+// If the user password length is more than 128 characters, an alert shows and an empty string is returned.
+if (passwordLength > 128) {
+  alert("Your password can have no more than 128 characters");
+}
+
+passwordLength = Number.parseInt(passwordLength);
+
+{
+  if (passwordLength >= 8 && passwordLength <=128)
+
+  const confirmUpper = confirm ( "Do you wish to use uppercase characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'"
+  );
+  const confirmLower = confirm ("Do you wish to use lowercase characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'"
+
+  );
+  const confirmNumbers = confirm ("Do you wish to use numbers in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'"
+
+  );
+  const confirmSpecialCharacters = confirm ("Do you wish to use special characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'"
+
+  );
+
+  if (confirmLower) {
+    combinedArray.push(...lowercase);
+  }
+  if (confirmUpper) {
+    combinedArray.push(...uppercase);
+  }
+  if (confirmNumber) {
+    combinedArray.push(...numbers);
+  }
+  if (confirmSpecial) {
+    combinedArray.push(...specials);
+  }
 }
 
 

@@ -108,8 +108,6 @@ function generatePassword (){
   let password = "";
   let optionsArray = [];
 };
-
-
 if (passwordLength < 8) {
   alert("Your password must have more than 7 characters");
 }
@@ -148,9 +146,27 @@ passwordLength = Number.parseInt(passwordLength);
     combinedArray.push(...specials);
   }
 
-  for  (var i =0; i< passwordLength; i++){
-    let randomCharacter = optionsArray[Math.floor(Math.random() * optionsArray.length)];
-    
+  if (
+    !isLowerCaseCharacters &&
+    !isUpperCaseCharacters &&
+    !isNumericCharacters &&
+    !isSpecialCharacters
+  ) {
+    alert("To generate a password you must pick at least one character type");
+  }
+
+  
+  function randomPasswordGenerator (){
+    const randomIndex = Math.floor(Math.random() * optionsArray.length);
+    const randomChoice = optionsArray [randomIndex];
+    return randomChoice;
+  }
+
+  for  (let i =0; i< passwordLength; i++){
+    let randomResult = randomPasswordGenerator();
+    result.push(randomResult);
+    return password;
+
   }
 }
 

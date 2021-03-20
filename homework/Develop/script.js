@@ -147,9 +147,12 @@ passwordLength = Number.parseInt(passwordLength);
   if (confirmSpecial) {
     combinedArray.push(...specials);
   }
+
+  for  (var i =0; i< passwordLength; i++){
+    let randomCharacter = optionsArray[Math.floor(Math.random() * optionsArray.length)];
+    
+  }
 }
-
-
 
 // Write password to the #password input
 function writePassword() {

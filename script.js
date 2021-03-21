@@ -1,5 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+// Array for lower case characters
 const lowercaseArray = [
   "a",
   "b",
@@ -28,6 +29,7 @@ const lowercaseArray = [
   "y",
   "z",
 ];
+// Array for upper case characters 
  const uppercaseArray = [
   "A",
   "B",
@@ -56,8 +58,8 @@ const lowercaseArray = [
   "Y",
   "Z",
  ];
-
-const specialCharactersArray = [
+//Array for special characters
+const specialCArray = [
   "!",
   '"',
   "#",
@@ -87,6 +89,7 @@ const specialCharactersArray = [
   "|",
 
 ];
+// Array for numbers declared in global 
 const numbersArray = [
   0,
   1,
@@ -100,77 +103,78 @@ const numbersArray = [
   9,
 ];
 
-function generatePassword (){
-  let isLowerCase;
-  let isUpperCase;
-  let isNumber;
-  let isSpecialCharacter;
-  let password = "";
-  let optionsArray = [];
-};
-if (passwordLength < 8) {
-  alert("Your password must have more than 7 characters");
-}
-// If the user password length is more than 128 characters, an alert shows and an empty string is returned.
-if (passwordLength > 128) {
-  alert("Your password can have no more than 128 characters");
-}
+function generatePassword(){
+    let password =[];
+    let isLowerCase;
+    let isUpperCase;
+    let isNumber;
+    let isSpecialCharacter;
+    let optionsArray = [];
+    const result = [];
 
-passwordLength = Number.parseInt(passwordLength);
+    let passwordLength = prompt (
+        "How long would you like your password to be ? please choose a number between 8 and 128"
+    );
+    passwordLength = Number.parseInt(passwordLength);
 
-{
-  if (passwordLength >= 8 && passwordLength <=128)
+    if (passwordLength < 8) {
+        alert("Your password must have more than 7 characters.");
+        return;
+    } else if (!passwordLength){
+        alert("You must input a number for a password to be generated. Please input a number.");
+        return;
+    } else if (passwordLength > 128) {
+        alert("Your password can have no more than 128 characters");
+        return;
+    }
+    if (passwordLength >= 8 && passwordLength <= 128){
+    isUpperCase = confirm 
+    ( "Do you wish to use uppercase characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'");
+    isLowerCase = confirm 
+    ("Do you wish to use lowercase characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'");
+    isNumber = confirm 
+    ("Do you wish to use numbers in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'");
+    isSpecialCharacter = confirm 
+    ("Do you wish to use special characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'");
 
-  const confirmUpper = confirm ( "Do you wish to use uppercase characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'"
-  );
-  const confirmLower = confirm ("Do you wish to use lowercase characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'"
+    
+    if (isUpperCase) {
+    optionsArray.push(...uppercaseArray); }
+    if (isLowerCase) {
+    optionsArray.push(...lowercaseArray); }
+    if (isNumber) {
+    optionsArray.push(...numbersArray); }
+    if (isSpecialCharacter) {
+    optionsArray.push(...specialCArray); }
+    
+    if (
+        !isLowerCase &&
+        !isUpperCase &&
+        !isNumber&&
+        !isSpecialCharacter
+      ) {
+        alert("To generate a password you must pick at least one character type");
+      }
 
-  );
-  const confirmNumbers = confirm ("Do you wish to use numbers in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'"
+    console.log(optionsArray);
 
-  );
-  const confirmSpecialCharacters = confirm ("Do you wish to use special characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'"
+    function randomPasswordGenerator (){
+        const randomIndex = Math.floor(Math.random() * optionsArray.length);
+        const randomChoice = optionsArray[randomIndex];
 
-  );
+        return randomChoice;
+    }
+    for (let i =0; i < passwordLength; i++) {
+        let randomResult = randomPasswordGenerator();
+        result.push(randomResult);
+    }
 
-  if (confirmLower) {
-    combinedArray.push(...lowercase);
+        console.log(result);
+        password = result.join("");
+        return password;
+    }
   }
-  if (confirmUpper) {
-    combinedArray.push(...uppercase);
-  }
-  if (confirmNumber) {
-    combinedArray.push(...numbers);
-  }
-  if (confirmSpecial) {
-    combinedArray.push(...specials);
-  }
-
-  if (
-    !isLowerCaseCharacters &&
-    !isUpperCaseCharacters &&
-    !isNumericCharacters &&
-    !isSpecialCharacters
-  ) {
-    alert("To generate a password you must pick at least one character type");
-  }
-
-  
-  function randomPasswordGenerator (){
-    const randomIndex = Math.floor(Math.random() * optionsArray.length);
-    const randomChoice = optionsArray [randomIndex];
-    return randomChoice;
-  }
-
-  for  (let i =0; i< passwordLength; i++){
-    let randomResult = randomPasswordGenerator();
-    result.push(randomResult);
-    return password;
-
-  }
-}
-
-// Write password to the #password input
+  // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");

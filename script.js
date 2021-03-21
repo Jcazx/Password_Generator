@@ -102,7 +102,7 @@ const numbersArray = [
   8,
   9,
 ];
-
+//Declaring
 function generatePassword(){
     let password =[];
     let isLowerCase;
@@ -116,7 +116,7 @@ function generatePassword(){
         "How long would you like your password to be ? please choose a number between 8 and 128"
     );
     passwordLength = Number.parseInt(passwordLength);
-
+    // Using if statements to create conditions for the prompts
     if (passwordLength < 8) {
         alert("Your password must have more than 7 characters.");
         return;
@@ -127,7 +127,9 @@ function generatePassword(){
         alert("Your password can have no more than 128 characters");
         return;
     }
+    //if the previous conditions were met then allow the person to continue 
     if (passwordLength >= 8 && passwordLength <= 128){
+    // creates alerts that come up giving the user the opportunity to decide the characters they will use 
     isUpperCase = confirm 
     ( "Do you wish to use uppercase characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'");
     isLowerCase = confirm 
@@ -137,7 +139,7 @@ function generatePassword(){
     isSpecialCharacter = confirm 
     ("Do you wish to use special characters in your password ? If you do please press 'Ok 'to accept and to decline please press 'cancel'");
 
-    
+    // if they have chosen a group of these characters then the array gets pushed
     if (isUpperCase) {
     optionsArray.push(...uppercaseArray); }
     if (isLowerCase) {
@@ -146,7 +148,7 @@ function generatePassword(){
     optionsArray.push(...numbersArray); }
     if (isSpecialCharacter) {
     optionsArray.push(...specialCArray); }
-    
+    // if they dont choose any of them then they are tolf thye have to with an alert
     if (
         !isLowerCase &&
         !isUpperCase &&
@@ -157,13 +159,14 @@ function generatePassword(){
       }
 
     console.log(optionsArray);
-
+    // function to generate password based on the users requests 
     function randomPasswordGenerator (){
         const randomIndex = Math.floor(Math.random() * optionsArray.length);
         const randomChoice = optionsArray[randomIndex];
 
         return randomChoice;
     }
+    // loop 
     for (let i =0; i < passwordLength; i++) {
         let randomResult = randomPasswordGenerator();
         result.push(randomResult);

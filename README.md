@@ -15,4 +15,5 @@ to do this i:
 ![](Assets/Screenshot6.png)
  
 
-[Click here for the deployed link](https://jcazx.github.io/Password_Generator/
+[Click here for the deployed link](https://jcazx.github.io/Password_Generator/)
+ 

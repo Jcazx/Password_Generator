@@ -157,8 +157,7 @@ function generatePassword(){
       ) {
         alert("To generate a password you must pick at least one character type");
       }
-
-    console.log(optionsArray);
+      
     // function to generate password based on the users requests 
     function randomPasswordGenerator (){
         const randomIndex = Math.floor(Math.random() * optionsArray.length);
@@ -171,8 +170,6 @@ function generatePassword(){
         let randomResult = randomPasswordGenerator();
         result.push(randomResult);
     }
-
-        console.log(result);
         password = result.join("");
         return password;
     }
